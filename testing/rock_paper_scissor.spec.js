@@ -14,13 +14,34 @@ const {playRound, getHand, Player1, hands, playGame} = require('../rps_test');
       expect(playRound).toBeTruthy()
     });
 
-  test('check if playRound funciton gets called', () => {
-      expect(playGame.playRound()).toHaveBeenCalled()
-    });
+// //My code after Hector's demo
+describe("Tests the mock getHand from RPS project", () => {
 
-test('return some value from playRound function', () => {
-  expect(playRound(Player1)).toReturn('rock, paper, scissors')
+  let mockgetHand;
+
+  beforeEach(() => {
+      mockgetHand = jest.fn();
+      playRound(Player1, Player2);
+      mockgetHand();
+  });
+
+  test('Check to see mock getHands is called', () => {
+    expect(mockgetHand).toHaveBeenCalled();
+  });
+
+  test('Check to see mock getHands is called', () => {
+    expect(mockgetHand).toHaveReturned();
+  });
+
 });
+// // My code before Hector's demo
+//   test('check if playRound funciton gets called', () => {
+//       expect(playGame.playRound()).toHaveBeenCalled()
+//     });
+
+// test('return some value from playRound function', () => {
+//   expect(playRound(Player1)).toReturn('rock, paper, scissors')
+// });
 
 
 //importing each individually
